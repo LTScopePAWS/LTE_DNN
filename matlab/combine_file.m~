@@ -2,10 +2,11 @@
 addpath(genpath(pwd));
 
 
-folder      = '../trace';
+folder      = '../trace/8-Aug/cell_739';
 fileName    = func_getFileName(folder);
 
 out     = 0;
+count   = 0;
 for i=1:1:floor(length(fileName)/10)
     dci_all = [];
     for j = 1:1:10
@@ -20,4 +21,7 @@ for i=1:1:floor(length(fileName)/10)
     if(out == 1)
         break;
     end
+    count   = count + 1;
+    saveFile = [foadilder,'dciLog_',num2str(count),'dciLog'];
+    save(saveFile,'dci_all');
 end
